@@ -1,8 +1,8 @@
-/********************************************************
-*Name: Inverted Index.
-*Description: Fast search program
+/****************************************************************
+*Name: Inverted Index Test.
+*Description: To test the Inverted Index program's functionality
 *Author: Babalola Maryam
-****************************************************/
+*****************************************************************/
 
 describe("Tests the inverted index", function(){
 	var newIndex = new Index();
@@ -40,32 +40,32 @@ describe("Tests the inverted index", function(){
 			expect(getIndex.of).toEqual(['0', '1']);
 			expect(getIndex.a).toEqual(['0', '1']);
 		});
-
 	});
 
 	describe ("A suite to Search Index", function(){
 		it("should return true", function(){
 			expect(newIndex.searchIndex).toEqual(jasmine.any(Function));
 		});
-		 it("verifies searching an index returns array of indices of correct object", function(){
+
+		it("verifies searching an index returns array of indices of correct object", function(){
 		 	expect(newIndex.searchIndex('wonderland')).toEqual([['0']]);
 		 	expect(newIndex.searchIndex('dwarf')).toEqual([['1']]);
 		 	expect(newIndex.searchIndex('hi')).toEqual([]);
 		 	expect(newIndex.searchIndex('lord')).toEqual([['1']]);
 		 	expect(newIndex.searchIndex('a')).toEqual([['0', '1']]);
 		  expect(newIndex.searchIndex('of')).toEqual([['0','1']]);
-		  });
+		});
 
-			it("can handle varied number of search terms", function(){
-				expect(newIndex.searchIndex('alice in wonderland')).toEqual([['0'],['0'],['0']]);
-				expect(newIndex.searchIndex('lord of the rings')).toEqual([['1'],['0', '1'],['1'],['1']]);
-				expect(newIndex.searchIndex('man a rabbit hole')).toEqual([['1'],['0', '1'],['0'],['0']]);
-			});
+		it("can handle varied number of search terms", function(){
+			expect(newIndex.searchIndex('alice in wonderland')).toEqual([['0'],['0'],['0']]);
+			expect(newIndex.searchIndex('lord of the rings')).toEqual([['1'],['0', '1'],['1'],['1']]);
+			expect(newIndex.searchIndex('man a rabbit hole')).toEqual([['1'],['0', '1'],['0'],['0']]);
+		});
 
 		it("ensures search can handle an array of words", function(){
 			expect(newIndex.searchIndex(['alice', 'in', 'wonderland'])).toEqual([['0'],['0'],['0']]);
 			expect(newIndex.searchIndex(['lord', 'of', 'the', 'rings'])).toEqual([['1'],['0', '1'],['1'],['1']]);
 			expect(newIndex.searchIndex(['an', 'unusual', 'alliance', 'of', 'man'])).toEqual([['1'],['1'],['1'],['0', '1'],['1']]);
-});
+		});
 	});
 });
