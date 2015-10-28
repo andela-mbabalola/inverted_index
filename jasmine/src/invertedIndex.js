@@ -75,10 +75,10 @@ Index.prototype.searchIndex = function(term){
   var wordCollection = this.getIndex('books.json');
   var searchWordIndex = [];
   var sterms;
- 	if (term.indexOf(" ") !== -1){
-  	sterms = term.split(" ");
+   if (term.indexOf(" ") !== -1){
+    sterms = term.split(" ");
   } else{
-  	sterms = term;
+    sterms = term;
   }
 
   if (typeof sterms === 'string'){
@@ -93,8 +93,8 @@ Index.prototype.searchIndex = function(term){
       if(wordCollection.hasOwnProperty(sterms[i])){
         //looping through the collection of words available
         for (var j in wordCollection){
-        	if (sterms[i] === j){
-          	searchWordIndex.push(wordCollection[j]);
+          if (sterms[i] === j){
+            searchWordIndex.push(wordCollection[j]);
             break;
           }
         }
