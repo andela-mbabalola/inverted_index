@@ -42,7 +42,7 @@ Index.prototype.createIndex = function(filePath) {
   for(var x in bookContent) {
     for (var y in bookContent[x]) {
       //Collecting, splitting and storing the words in the JSON file in a variable
-      wordsInBook = bookContent[x][y].split(' ');
+      wordsInBook = bookContent[x][y].split(/\s/);
       for (var i in wordsInBook) {
         wordsInBook[i] = wordsInBook[i].toLowerCase().replace(/[.,'':]/g,"");
         //checking through the variable for new words
@@ -82,7 +82,7 @@ Index.prototype.searchIndex = function(term) {
   var searchWordIndex = [];
   var sterms;
    if (term.indexOf(" ") !== -1) {
-    sterms = term.split(" ");
+    sterms = (term.split(/\s/));
   } else {
     sterms = term;
   }
